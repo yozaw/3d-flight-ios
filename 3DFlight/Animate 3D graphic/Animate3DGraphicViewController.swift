@@ -61,16 +61,6 @@ class Animate3DGraphicViewController: UIViewController, MissionSettingsVCDelegat
         // CMMotionManager を作成する
         self.motionManager = CMMotionManager()
         self.motionManager.deviceMotionUpdateInterval = 0.1
-        
-        do {
-            // ライセンスキーを設定して認証
-            let result = try AGSArcGISRuntimeEnvironment.setLicenseKey("runtimelite,1000,rud8329497369,none,TRB3LNBHPB6J2T8AG010")
-            print("License Result: \(result.licenseStatus)")
-        }
-        catch let error as NSError {
-            // 認証に失敗した場合はエラーを出力
-            print("Error: \(error)")
-        }
                 
         //map
         let map = AGSMap(basemap: AGSBasemap.streets())
@@ -269,9 +259,9 @@ class Animate3DGraphicViewController: UIViewController, MissionSettingsVCDelegat
             print("pitch:" + String(data.attitude.pitch))
             print("roll:" + String(data.attitude.roll))
             
-            let heading = data.attitude.yaw * 100
-            let pitch = data.attitude.roll * 100
-            let roll = -data.attitude.pitch * 100
+            let heading = -data.attitude.yaw * 50
+            let pitch = data.attitude.roll * 50
+            let roll = -data.attitude.pitch * 50
             
             self.planeModelGraphic.attributes["HEADING"] = heading
             self.planeModelGraphic.attributes["PITCH"] = pitch
