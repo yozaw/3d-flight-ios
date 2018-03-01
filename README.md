@@ -2,4 +2,4 @@
 
 3D フライト シミュレーター
 
-<img src="image/thumbnail.png" width="350px">
+<img src="image/thumbnail.png" width="400px">
